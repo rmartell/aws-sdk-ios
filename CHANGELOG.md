@@ -1,5 +1,14 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.5.5
+
+### Bug fixes
+* **SDK Core**
+	* **Breaking API change** `doesAppRunInBackground` method is renamed to `awsDoesAppRunInBackground`. [GitHub Issue #643](https://github.com/aws/aws-sdk-ios/issues/643)
+
+* **AWS IoT**
+	* Fixed bug which caused crash when shadow timer timeout is called after shadow is unregistered. [Github Issue #640](https://github.com/aws/aws-sdk-ios/issues/640)
+
 ## 2.5.4
 
 ### New Features
