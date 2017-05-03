@@ -565,6 +565,12 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                     return [AWSTask taskWithError:error];
                 }
             }
+
+            if ((!self.cachedLogins || [self.cachedLogins isEqualToDictionary:logins])
+                && self.internalCredentials
+                && [self.internalCredentials.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending) {
+                return [AWSTask taskWithResult:self.internalCredentials];
+            }
             
             self.refreshingCredentials = YES;
             self.cachedLogins = logins;
